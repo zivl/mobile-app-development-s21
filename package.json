@@ -1,0 +1,34 @@
+{
+  "name": "mobile-app-development-s21",
+  "version": "1.0.0",
+  "description": "Mobile Application Development by Ziv Levy, Shenkar Engineering School, Spring 2021",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zivl/mobile-app-development-s21.git"
+  },
+  "author": "Ziv Levy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zivl/mobile-app-development-s21/issues"
+  },
+  "homepage": "https://github.com/zivl/mobile-app-development-s21#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-config-react-native": "^4.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.2.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-native": "^3.10.0",
+    "prettier": "^2.2.1"
+  }
+}
