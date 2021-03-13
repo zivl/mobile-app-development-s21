@@ -1,5 +1,5 @@
 {
-    "eslint.nodePath": "/node_modules/eslint",
+    "eslint.nodePath": "<root>/eslint",
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     }

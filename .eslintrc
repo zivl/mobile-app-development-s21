@@ -20,8 +20,7 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "react-native",
-        "prettier",
-        "prettier/react"
+        "prettier"
       ],
       "plugins": ["react", "react-native", "prettier", "jest"],
       "rules": {
@@ -47,6 +46,7 @@
         "import/no-nodejs-modules": 0,
         "import/no-unresolved": 0,
         "import/no-namespace": 0,
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+        "import/named": 0
       }
 }
