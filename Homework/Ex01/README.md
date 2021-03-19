@@ -38,8 +38,11 @@ Description: Gets the current status of all *voted* parties. In case some party 
 Returns: `Object` which maps from `partyId` --> `Object` in the shape of `{ currentVotes: Number }`
 
 ## Screens
-1. The first screen shows the user the parties he/she can vote. There will be a grid view of the parties in which each item in the grid consists of the party’s logo and the party’s official name as a caption of the logo.
-2. The second screen shows the top 5 ranked parties and the percentage of votes for each party. The list of parties should be ordered by the votes percentage in descending order
+1. The first screen shows the user the parties he/she can vote. There will be a grid view of the parties in which each item in the grid consists of the party’s logo and the party’s official name as a caption of the logo.<br>
+When the user presses to vote and the vote has been sent successfuly - a dialog message for the user will state that the vote has been accepted.<br>
+See example image:
+![image](https://user-images.githubusercontent.com/4571570/111807412-95f4dd00-88db-11eb-8c64-577e4a337b58.png)
+3. The second screen shows the top 5 ranked parties and the percentage of votes for each party. The list of parties should be ordered by the votes percentage in descending order
 
 Note: Both screen should contain the same header component in which it has a title for the application and button to toggle between the two screens (Vote/Poll)
 
