@@ -33,7 +33,7 @@ Params:
 
 Returns: `200 OK`
 
-Method: `GET` URL: `/parties/poll-status`<br>
+Method: `GET` URL: `/api/parties/poll-status`<br>
 Description: Gets the current status of all *voted* parties. In case some party hasn't been voted, it will be omitted from the response<br>
 Returns: `Object` which maps from `partyId` --> `Object` in the shape of `{ currentVotes: Number }`
 
