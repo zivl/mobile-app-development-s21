@@ -6,21 +6,13 @@
  * }
  */
 
-import { ADD_ITEM, DELETE_ITEM, TOGGLE_ITEM } from './todoActions';
+import { ADD_ITEM, DELETE_ITEM, SET_USER_DATA, TOGGLE_ITEM } from './todoActions';
 
 const initialState = {
-  list: [
-    {
-      id: '123123',
-      text: 'something to do in the list',
-      isDone: false,
-    },
-    {
-      id: '12312111',
-      text: 'shopping',
-      isDone: false,
-    },
-  ],
+  list: [],
+  user: {
+    name: '',
+  },
 };
 export const todoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -32,7 +24,7 @@ export const todoReducer = (state = initialState, action) => {
     case DELETE_ITEM:
       return {
         ...state,
-        list: state.list.filter((todo) => todo.id === action.payload),
+        list: state.list.filter((todo) => todo.id !== action.payload),
       };
     case TOGGLE_ITEM: {
       const todoToToggle = state.list.find((todo) => todo.id === action.payload);
@@ -42,6 +34,13 @@ export const todoReducer = (state = initialState, action) => {
         list: state.list.filter((todo) => todo.id !== action.payload).concat(todoToToggle),
       };
     }
+    case SET_USER_DATA:
+      return {
+        ...state,
+        user: {
+          name: action.payload || 'Error',
+        },
+      };
     default:
       return state;
   }
