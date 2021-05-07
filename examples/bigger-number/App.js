@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 const LEFT = 'left';
@@ -18,42 +18,37 @@ function Result(props) {
   );
 }
 
-export default class App extends React.Component {
-  state = {
-    leftNumber: Math.floor(Math.random() * 100),
-    rightNumber: Math.floor(Math.random() * 100),
-    shouldShowResult: false,
-    isCorrect: true,
-  };
+export default function App() {
+  const [shouldShowResult, setShouldShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(null);
 
-  componentDidMount() {
-    console.log('mounted', this.state);
-  }
+  const leftNumber = Math.floor(Math.random() * 100);
+  const rightNumber = Math.floor(Math.random() * 100);
 
-  componentDidUpdate() {
-    console.log('updated', this.state);
-  }
+  useEffect(() => {
+    console.log('use effect', isCorrect);
+    if (isCorrect !== null) {
+      setShouldShowResult(true);
+    }
+  }, [isCorrect]);
 
-  checkResult(side) {
+  function checkResult(side) {
     if (side === LEFT && this.state.leftNumber >= this.state.rightNumber) {
-      this.setState({ shouldShowResult: true, isCorrect: true });
+      setIsCorrect(true);
     } else if (side === RIGHT && this.state.leftNumber <= this.state.rightNumber) {
-      this.setState({ shouldShowResult: true, isCorrect: true });
+      setIsCorrect(true);
     } else {
-      this.setState({ shouldShowResult: true, isCorrect: false });
+      setIsCorrect(false);
     }
   }
 
-  render() {
-    const { shouldShowResult, leftNumber, rightNumber, isCorrect } = this.state;
-    return (
-      <View style={styles.container}>
-        <Number number={leftNumber.toString()} onPress={() => this.checkResult(LEFT)} />
-        {shouldShowResult && <Result isCorrect={isCorrect} />}
-        <Number number={rightNumber.toString()} onPress={() => this.checkResult(RIGHT)} />
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <Number number={leftNumber.toString()} onPress={() => checkResult(LEFT)} />
+      {shouldShowResult && <Result isCorrect={isCorrect} />}
+      <Number number={rightNumber.toString()} onPress={() => checkResult(RIGHT)} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
