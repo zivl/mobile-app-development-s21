@@ -52,6 +52,7 @@ const Todo = ({ userName, todoList, toggleTodo, addTodo, deleteTodo, loadUserDat
       <FlatList
         data={todoList}
         keyExtractor={(todoItem) => todoItem.id}
+        ListEmptyComponent={<Text>No Todo Items Found</Text>}
         renderItem={({ item }) => (
           <Swipeout
             autoClose

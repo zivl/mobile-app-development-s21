@@ -1,19 +1,24 @@
 import { func } from 'prop-types';
-import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, Button } from 'react-native';
 
 export const AddItem = ({ onSubmit }) => {
-  const inputRef = React.createRef();
+  const [value, setValue] = useState('');
   return (
     <View style={styles.wrapper}>
       <TextInput
-        ref={inputRef}
+        testID="todo-input-text"
+        value={value}
         clearButtonMode="while-editing"
+        onChangeText={setValue}
         style={styles.textInput}
         placeholder="what up?"
-        onSubmitEditing={({ nativeEvent }) => {
-          onSubmit(nativeEvent.text);
-          inputRef.current.clear();
+      />
+      <Button
+        title="Add"
+        onPress={() => {
+          onSubmit(value);
+          setValue('');
         }}
       />
     </View>
