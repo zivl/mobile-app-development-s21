@@ -37,9 +37,7 @@ export const todoReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        user: {
-          name: action.payload || 'Error',
-        },
+        user: action.payload.user || 'Error',
       };
     default:
       return state;

@@ -42,7 +42,7 @@ const Todo = ({ userName, todoList, toggleTodo, addTodo, deleteTodo, loadUserDat
     <View style={styles.todoList}>
       {userName ? (
         <View>
-          <Text>{userName}</Text>
+          <Text testID="username-text">{userName}</Text>
         </View>
       ) : (
         <Button title="Load Data" onPress={loadUserData} />
